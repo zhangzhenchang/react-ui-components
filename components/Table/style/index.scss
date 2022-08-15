@@ -1,0 +1,105 @@
+@import '../../styles/theme/color';
+@import '../../styles/theme/theme.scss';
+
+.#{$prefix}-table {
+  max-width: 100%;
+  overflow-x: scroll;
+  border-radius: 6px;
+  .#{$prefix}-table-kong_wrapper {
+    text-align: center;
+    color: $empty;
+    font-size: 28px;
+  }
+
+  .#{$prefix}-table-wrapper {
+    width: 100%;
+    text-align: left;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    user-select: none;
+    margin: 0;
+  }
+  thead tr {
+    background: $white;
+  }
+  th,
+  td {
+    position: relative;
+    padding: 14px 30px;
+    overflow-wrap: break-word;
+    line-height: 1;
+    position: relative;
+    color: $fontColor-2;
+    background: #fff;
+  }
+  th {
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 2px solid $border;
+  }
+  td {
+    font-size: 12px;
+    border-bottom: 1px solid $border;
+  }
+  tbody tr:last-child{
+    td{
+      border:none;
+    }
+  }
+  tbody tr:hover {
+    td{
+      //background: $hover-bg-1;
+    }
+  }
+  tbody td{
+    padding: 20px 30px;
+  }
+  //tbody td.table-active {
+  //  border-color: #1890ff;
+  //}
+  //tbody td.table-select {
+  //  border-color: #1890ff;
+  //}
+  //tbody td.table-active .td-bot {
+  //  position: absolute;
+  //  width: 6px;
+  //  height: 6px;
+  //  background: #1890ff;
+  //  bottom: 0;
+  //  left: 0;
+  //  cursor: ns-resize;
+  //}
+  .#{$prefix}-table-collapse {
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    color: inherit;
+    line-height: 17px;
+    border: 1px solid $border;
+    outline: none;
+    transition: all 0.3s;
+    user-select: none;
+    margin-right: 10px;
+  }
+  .#{$prefix}-table-plus,
+  .#{$prefix}-table-minus{
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    line-height: 0.8;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 800px) {
+  .#{$prefix}-table {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

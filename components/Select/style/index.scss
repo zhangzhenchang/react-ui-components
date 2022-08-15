@@ -1,0 +1,213 @@
+@import '../../styles/theme/color';
+@import '../../styles/theme/theme.scss';
+.#{$prefix}-select-container {
+  position: relative;
+  .#{$prefix}-select-label {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $input-label;
+    margin-bottom:10px;
+  }
+  .#{$prefix}-select-wrapper {
+    position: relative;
+    height:36px;
+    //transition: all 3s;
+    transition: height $animation-duration-slow $ease-in-out;
+    border-radius: 6px;
+    background-color: $input-bg;
+    cursor: text;
+    &.#{$prefix}-select-cursorPointer{
+      cursor: pointer;
+    }
+    .#{$prefix}-select-form-placeholder {
+      z-index: 100;
+      color: $input-placeholder;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      line-height:36px;
+      padding-left: 14px;
+      font-size: $font-size-base;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: break-all;
+      &.#{$prefix}-select-pc_shrink {
+        display: none;
+        //line-height: 12px;
+        //font-size: 12px;
+        //margin-top: 8px;
+      }
+    }
+    .#{$prefix}-select-input,
+    .#{$prefix}-select-active_text {
+      height:36px;
+      text-overflow: ellipsis;
+      padding: 8px 25px 8px 14px;
+      box-sizing: border-box;
+      margin: 0;
+      font-variant: tabular-nums;
+      list-style: none;
+      font-feature-settings: 'tnum';
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      min-width: 0;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 1.5715;
+      background-color: transparent;
+      background-image: none;
+      border: 1px solid #E9EDF0;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: $font-size-base;
+      &::placeholder {
+        color: $input-placeholder;
+      }
+      &:hover,
+      &:focus,
+      &:focus-visible{
+        border-color: $purple-1;
+        border-right-width: 1px !important;
+        outline: 0;
+      }
+      &.#{$prefix}-select-nosearch {
+        color: transparent;
+        cursor: pointer;
+      }
+    }
+    .#{$prefix}-select-clear{
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      margin-top: -9px;
+      width: 18px;
+      height: 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      color: $fontColor-1;
+      font-size: $font-size-sm;
+      padding: 4px 0px 4px 6px;
+      z-index: 9999;
+      cursor: pointer;
+      color: rgba(134, 145, 163, 0.49);
+      //display: none;
+      &:hover+.#{$prefix}-select-input{
+        border-color: $purple-1;
+      }
+      &:hover{
+        color: $fontColor-4;
+      }
+    }
+    .#{$prefix}-select-jiantou {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -9px;
+      width: 18px;
+      height: 18px;
+      overflow: hidden;
+      display: flex;
+      color: $fontColor-1;
+      font-size: $font-size-sm;
+      padding: 4px 0px 4px 6px;
+      z-index: 9999;
+    }
+    .#{$prefix}-select-active_text {
+      position: absolute;
+      z-index: 100;
+      top: 0px;
+      left: 0;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      &.#{$prefix}-select-shade {
+        color: $input-placeholder;
+        z-index: 0;
+      }
+    }
+  }
+  .#{$prefix}-select-hide_placeholder{
+    display: none !important;
+  }
+  .#{$prefix}-select-option_list {
+    position: absolute;
+    margin-top: 4px;
+    width: 100%;
+    z-index: 99999;
+    outline: none;
+    max-height: 256px;
+    background: #FEFFFF;
+    box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
+    border: 1px solid #E9EDF0;
+    padding: 8px;
+    overflow-y: auto;
+    .#{$prefix}-select-option_item {
+      min-height: 32px;
+      padding: 5px 12px;
+      color: $fontColor-2;
+      font-weight: 400;
+      font-size: $font-size-base;
+      line-height: 22px;
+      width: 100%;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;// 控制不换行
+      text-overflow: ellipsis;// 控制省略部分以...结束
+      &:hover,
+      &.active{
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+        border-radius: 6px;
+        background-color: $hover-bg-1;
+        color: $purple-1;
+      }
+    }
+    .#{$prefix}-select-kong_wrapper {
+      color: #939DAD;
+      text-align: center;
+      padding: 16px;
+      font-size: 40px;
+      .#{$prefix}-select-kong {
+        //font-size: 30px;
+        margin: 14px 0;
+      }
+    }
+  }
+  // 禁用 只读样式
+  & .disabled {
+    &.#{$prefix}-select-wrapper {
+      background: rgba(134, 145, 163, 0.09) !important;
+      color: $fontColor-1;
+      cursor: not-allowed;
+      border: none;
+
+      &:hover,
+      &:focus{
+        border: none;
+        background: rgba(134, 145, 163, 0.09) !important;
+        color: $fontColor-1 !important;
+      }
+      .#{$prefix}-select-input,
+      .#{$prefix}-select-active_text {
+        border: none;
+        &:hover,
+        &:focus,
+        &:focus-visible{
+          border: none;
+          outline: 0;
+        }
+      }
+      input,
+      textarea {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

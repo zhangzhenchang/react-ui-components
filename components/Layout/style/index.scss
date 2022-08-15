@@ -1,0 +1,67 @@
+@import '../../styles/theme/theme.scss';
+
+.#{$prefix}-layout{
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+
+  min-height: 100%;
+  background: $layout-body-background;
+
+  &.#{$prefix}-layout-has-sider {
+    flex-direction: row;
+
+    >.#{$prefix}-layout,
+    >.#{$prefix}-layout-content {
+      width: 0; 
+    }
+  }
+
+  .#{$prefix}-layout-header,
+  .#{$prefix}-layout-footer {
+    flex: 0 0 auto;
+  }
+  .#{$prefix}-layout-header {
+    height: $layout-header-height;
+    padding: $layout-header-padding;
+    color: $layout-header-color;
+    line-height: $layout-header-height;
+    background: $layout-header-background;
+    box-shadow: $layout-header-shadow;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
+
+  .#{$prefix}-layout-footer {
+    padding: $layout-footer-padding;
+    color: $layout-footer-color;
+    font-size: $font-size-base;
+    background: $layout-footer-background;
+  }
+
+  .#{$prefix}-layout-content {
+    flex: auto;
+    min-height: 0;
+  }
+
+  .#{$prefix}-layout-sider {
+    position: relative;
+    min-width: 0;
+    transition: all 0.2s;
+    box-shadow: $layout-sider-shadow;
+    &.#{$prefix}-layout-sider-dark {
+      background: $layout-sider-background;
+    }
+    &.#{$prefix}-layout-sider-light {
+      background: $layout-sider-background;
+    }
+    .#{$prefix}-layout-sider-children {
+      height: 100%;
+    }
+  }
+}

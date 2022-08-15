@@ -1,0 +1,42 @@
+@import '../../styles/theme/color';
+@import '../../styles/theme/theme.scss';
+
+.#{$prefix}-form-wrapper {
+  .#{$prefix}-form-item {
+    //line-height: 36px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .#{$prefix}-form-valid-item {
+    .from-placeholder {
+      //&:before {
+      //  content: '*';
+      //  color: $red-1;
+      //}
+    }
+  }
+  .#{$prefix}-form-item-error {
+    margin-bottom: 12px;
+    .#{$prefix}-form-error-text {
+      line-height: 1.5;
+      margin-top: 4px;
+      color: $red-1;
+      font-size: $font-size-sm;
+    }
+    .#{$prefix}-input-affix-wrapper,
+    .#{$prefix}-select-active_text {
+      border-color: $red-1 !important;
+      background: $input-hover-bg-err !important;
+      margin-bottom: 0;
+    }
+  }
+}
+//@media screen and (min-width: 0) and (max-width: 800px) {
+//  .#{$prefix}-form-wrapper {
+//    .#{$prefix}-form-item-error {
+//      .#{$prefix}-form-error-text {
+//        line-height: 0.4rem;
+//      }
+//    }
+//  }
+//}

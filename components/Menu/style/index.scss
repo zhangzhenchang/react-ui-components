@@ -1,0 +1,157 @@
+@import '../../styles/theme/theme.scss';
+
+.#{$prefix}-menu{
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  color: $menu-item-color;
+  font-size: $menu-item-font-size;
+  line-height: 0; // Fix display inline-block gap
+  text-align: left;
+  list-style: none;
+  background: $menu-bg;
+  outline: none;
+  
+  // extend
+  @mixin hoverStyle {
+    color: $menu-item-color-hover;
+  }
+  
+  &.#{$prefix}-menu-collapsed {
+    width: 80px;
+  }
+
+  .#{$prefix}-menu-item,.#{$prefix}-submenu {
+    padding: 0 15px;
+    cursor: pointer;
+    .fpp-menu-item-container, .fpp-submenu-container, .fpp-submenu-title-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .fpp-menu-item-container, .fpp-submenu-title-container {
+      padding-left: 17px;
+      width: 100%;
+      height: $menu-item-no-first-height;
+      border-radius: $menu-item-radius;
+      transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+      .fpp-menu-item-title-content, .fpp-submenu-title-content{
+        display: block;
+        margin-left: 10px;
+        height: $menu-item-no-first-height;
+        line-height: $menu-item-no-first-height;
+      }
+    }
+  }
+
+  .#{$prefix}-submenu{
+    .#{$prefix}-submenu-container {
+      height: $menu-item-height;
+    }
+    &:hover {
+      .#{$prefix}-submenu-title-content,svg{
+        @include hoverStyle;
+      }
+    }
+    &.#{$prefix}-submenu-disabled {
+      color: #00000040!important;
+      background: none;
+      cursor: not-allowed;
+      &:hover {
+        .#{$prefix}-submenu-title-content,svg{
+          color: #00000040!important;
+        }
+      }
+    }
+    .drop-down{
+      position: absolute;
+      top: 35%;
+      right: 16px;
+      transition: transform 0.3s;
+    }
+    &.#{$prefix}-submenu-open {
+      .drop-down {
+        transform: rotate(180deg);
+      }
+    }
+    &.#{$prefix}-submenu-light {
+      .fpp-submenu-title-content,svg{
+        @include hoverStyle;
+      }
+    }
+    .#{$prefix}-submenu-list{
+      transition: background $animation-duration-slow $ease-in-out,
+      padding $animation-duration-slow $ease-in-out,
+      height $animation-duration-slow $ease-in-out;
+      overflow: hidden;
+    }
+    .#{$prefix}-submenu-hidden {
+      // display: none;
+      height: 0;
+      
+    }
+  }
+
+  .#{$prefix}-menu-item{
+    display: flex;
+    align-items: center;
+    height: $menu-item-height;
+    &.#{$prefix}-menu-item-no-first{
+      height: $menu-item-no-first-height;
+    }
+    &:hover {
+      .#{$prefix}-menu-item-title-content,svg{
+        @include hoverStyle;
+      }
+    }
+    &.#{$prefix}-menu-item-disabled {
+      color: #00000040!important;
+      background: none;
+      cursor: not-allowed;
+      &:hover {
+        .#{$prefix}-menu-item-title-content,svg{
+          color: #00000040!important;
+        }
+      }
+    }
+    
+    &.#{$prefix}-menu-item-select{
+      .#{$prefix}-menu-item-container{
+        background: $menu-item-bg-hover;
+        box-shadow: $menu-hover-shadow;
+      }
+      .#{$prefix}-menu-item-title-content,svg{
+        @include hoverStyle;
+      }
+    }
+
+  }
+  
+  .#{$prefix}-menu-divider{
+    height: $menu-item-height;
+    line-height: $menu-item-height;
+    padding: 0 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    cursor: initial;
+    .#{$prefix}-menu-divider-text{
+      padding-left: 17px;
+      font-size: 12px;
+      font-weight: 500;
+      color: $fontColor-4;
+      letter-spacing: 1px;
+    }
+  }
+  .#{$prefix}-submenu{
+    .#{$prefix}-menu-divider{
+      height: $menu-item-no-first-height;
+      line-height: $menu-item-no-first-height;
+      padding: 0 15px;
+      .#{$prefix}-menu-divider-text{
+        padding-left: 27px;
+      }
+    }
+  }
+}
