@@ -1,6 +1,6 @@
 {
   "name": "react-ui-components",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "fpp-ui",
   "main": "lib/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "build-storybook": "build-storybook",
     "storybook-docs": "start-storybook --docs --no-manager-cache"
   },
-  "author": "",
+  "author": "Charles",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.16.0",
