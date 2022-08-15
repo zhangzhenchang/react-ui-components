@@ -1,5 +1,5 @@
 {
-  "name": "react-ui-components",
+  "name": "react-ui-antd-components",
   "version": "1.0.5",
   "description": "fpp-ui",
   "main": "lib/index.js",
@@ -58,5 +58,9 @@
     "assets",
     "/dist"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangzhenchang/react-ui-components.git"
+  }
 }
